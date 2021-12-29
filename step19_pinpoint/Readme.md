@@ -3,6 +3,7 @@
 ## Sections
 
 - [Send Email with pinpoint](./step_00_send_email)
+- [Amplify Segment](./step01_amplify_segment)
 
 ## Reading Material
 
