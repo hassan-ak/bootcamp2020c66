@@ -2,6 +2,8 @@
 
 ## AWS Pinpoint
 
+### Class Notes
+
 AWS targeted marketing communications service through mobile SMS, Push Notifications, email and custom channels. Write message to right person at right time.
 
 Three main components
@@ -23,7 +25,19 @@ Three main components
 - Measure results
   - Perform analytics related to campaign to track users response. These insights help to strenthen campaigns to drive better results based on user actions.
 
-### Class Notes
+Service only available in following regions
+
+- Asia Pacific (Mumbai)
+- Europe (London)
+- Europe (Ireland)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Europe (Frankfurt)
+- Asia Pacific (Seoul)
+- Asia Pacific (Tokyo)
+- US East (N. Virginia)
+- Canada (Central)
+- US West (Oregon)
 
 ### Sections
 
