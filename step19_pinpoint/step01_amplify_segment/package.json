@@ -10,7 +10,7 @@
     "develop": "gatsby develop",
     "build": "gatsby build",
     "clean": "gatsby clean"
-   },
+  },
   "dependencies": {
     "gatsby": "^4.4.0",
     "react": "^17.0.2",
