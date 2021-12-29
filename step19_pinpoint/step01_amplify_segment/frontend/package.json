@@ -1,7 +1,7 @@
 {
-  "name": "gatsbyemptyproject",
+  "name": "frontend",
   "version": "1.0.0",
-  "description": "empty project",
+  "description": "AWS pinpoint with amplify on gatsby",
   "main": "index.js",
   "author": "Hassan Ali Khan",
   "license": "MIT",
