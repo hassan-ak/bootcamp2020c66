@@ -1,5 +1,7 @@
 # Step0 - Send Email with Pinpoint
 
+Prefer to use AWS web console to use this service
+
 ## Reading Material
 
 - [AWS Pinpoint](https://aws.amazon.com/pinpoint/)
