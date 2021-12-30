@@ -1,5 +1,10 @@
 # Amplify Segment
 
+## Reading Materila
+
+- [Integrating the AWS mobile SDKs or JavaScript library with your application](https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate-sdk.html)
+- [Registering endpoints in your application](https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate-endpoints.html)
+
 ## Steps to code
 
 1. Create a new directory by using `mkdir frontend` and naviagte to the newly created directory using `cd frontend`. Use `yarn init` to initilize an yarn project in the directory which creates a "package.json" file with the following content
@@ -127,3 +132,89 @@
      );
    }
    ```
+
+4. Create the project an amplify project using `amplify init`
+
+5. Install aws amplify in the app using `yarn add aws-amplify`
+
+6. Create an identity pool with un-auth enabled.
+7. Update un-auth poilcy.
+8. Update "index.tsx" to configure amplify
+
+```js
+import Analytics from '@aws-amplify/analytics';
+import Auth from '@aws-amplify/auth';
+
+const amplifyConfig = {
+  Auth: {
+    identityPoolId: 'COGNITO_IDENTITY_POOL_ID',
+    region: 'us-west-2',
+  },
+};
+//Initialize Amplify
+Auth.configure(amplifyConfig);
+
+const analyticsConfig = {
+  AWSPinpoint: {
+    // Amazon Pinpoint App Client ID
+    appId: 'ed46861429224c4ca0feee765cedba3e',
+    // Amazon service region
+    region: 'us-west-2',
+    mandatorySignIn: false,
+  },
+};
+
+Analytics.configure(analyticsConfig);
+```
+
+9. Update "index.tsx" to record an event on click
+
+```js
+<button
+  onClick={() => {
+    console.log('Button clicked sending record');
+    Analytics.record({
+      name: 'ButtonClickedHome',
+      attributes: { name: name, email: email },
+    });
+  }}
+>
+  Click Here
+</button>
+```
+
+```js
+<button
+  onClick={() => {
+    console.log('Button clicked sending record');
+    Analytics.record({
+      name: 'MoveToPage2',
+      attributes: { name: 'Page2Movement' },
+    });
+    navigate('/page2');
+  }}
+>
+  Go to Page 2
+</button>
+```
+
+```js
+Analytics.updateEndpoint({
+  userAttributes: {
+    interests: ['football', 'basketball', 'AWS'],
+    // ...
+  },
+  attributes: {
+    // Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.
+    hobbies: ['piano', 'hiking'],
+  },
+});
+Analytics.record({
+  name: 'Home',
+  attributes: { genre: 'Rock', year: '1989' },
+});
+```
+
+10. Same way update "page.js"
+11. Build using `gastby build`
+12. `amplify serve`
